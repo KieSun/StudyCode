@@ -75,3 +75,21 @@ func colorOverlay(color: UIColor) -> Filter {
     }
 }
 
+precedencegroup OverPrecedence {
+    
+    associativity: left
+    
+}
+
+infix operator >>> : OverPrecedence
+
+func >>> (filter1: @escaping Filter, filter2: @escaping Filter) -> Filter {
+    
+    return { image in filter2(filter1(image)) }
+}
+
+let myFilter2 = blur(radius: 2.0) >>> colorOverlay(color: UIColor.red)
+let image = UIImage(named: "image")
+
+let result = myFilter2(CIImage(image: #imageLiteral(resourceName: "image"))!)
+
