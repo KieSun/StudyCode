@@ -15,6 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		700F7C351DFA861200D0FC90 /* 高阶函数.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "高阶函数.playground"; sourceTree = "<group>"; };
+		700F7C361DFA91E400D0FC90 /* 可选值.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "可选值.playground"; sourceTree = "<group>"; };
+		700F7C371DFA94E500D0FC90 /* Test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Test.playground; sourceTree = "<group>"; };
 		70190DA81DF94C2A007336FD /* 函数式编程.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "函数式编程.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70190DAB1DF94C2B007336FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70190DAD1DF94C2B007336FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +67,9 @@
 				70190DB71DF94C2B007336FD /* Info.plist */,
 				70190DBD1DF94C55007336FD /* Battleship.playground */,
 				70190DBE1DF9593B007336FD /* CoreImage.playground */,
+				700F7C351DFA861200D0FC90 /* 高阶函数.playground */,
+				700F7C361DFA91E400D0FC90 /* 可选值.playground */,
+				700F7C371DFA94E500D0FC90 /* Test.playground */,
 			);
 			path = "函数式编程";
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 				70190DBC1DF94C2B007336FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
