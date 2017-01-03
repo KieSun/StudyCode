@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.avatar {
+    width: 200rpx;
+    height: 200rpx;
+    margin-top: 150rpx;
+}
+.name {
+    font-size: 32rpx;
+    font-weight: bold;
+}
+.chickMe {
+    font-size: 22rpx;
+    font-weight: bold;
+}
