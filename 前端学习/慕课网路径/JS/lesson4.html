@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var array = [10, 2, 19, 17];
+        console.log(array.join("-"));
+        console.log(array.reverse());
+        console.log(array.sort(function (a, b) {
+            return a > b
+        }));
+
+        function arrReverse(array) {
+            var newArray = [];
+            for (var i = array.length - 1; i >= 0; i--) {
+                newArray.push(array[i]);
+            }
+            return newArray
+        }
+        document.write(arrReverse([1,2,3,4,5,6,7,8]));
+
+        console.log([1].concat(array));
+        console.log(array.slice(1, 3));
+
+        function newIndexof(array, value) {
+            for (var i = 0; i < array.length; i++) {
+                if (value === array[i]) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        console.log(newIndexof([1, 3, 1, 2], 3));
+
+        var string = "hello world";
+        console.log(string.slice(1, 3));
+        console.log(string.substr(0, 5));
+
+//        var email = prompt("请输入登录邮箱");
+//        var index = email.indexOf("@");
+//        document.write(email.substr(0, index) + "<br/>");
+//        document.write(email.substr(index + 1));
+
+        var newString = "1, 3, 5";
+        console.log(newString.split(", "));
+        console.log(newString.replace(",", "-"));
+
+        var str = "Never deter till tomorrow that which you can do today";
+        var i = str.indexOf("tomorrow");
+        var strNew = str.substr(i, 8);
+        document.write(strNew.toUpperCase());
+    </script>
+</body>
+</html>
