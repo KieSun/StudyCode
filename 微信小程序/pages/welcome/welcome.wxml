@@ -1,8 +1,8 @@
 
 <view class="container">
     <image class="avatar" src="/pages/images/avatar/1.png"></image>
-    <text class="name">Hello, YCK</text>
-    <view>
+    <text class="name"><text style="color:red">Hello</text>, YCK</text>
+    <view class="chickMe-container">
         <text class="chickMe">点我开始小程序之路</text>
     </view>
 </view>

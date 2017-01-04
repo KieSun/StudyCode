@@ -9,10 +9,20 @@
     margin-top: 150rpx;
 }
 .name {
+    margin-top: 100rpx;
     font-size: 32rpx;
     font-weight: bold;
 }
 .chickMe {
     font-size: 22rpx;
     font-weight: bold;
+}
+page {
+    background-color: #b3d4db;
+}
+.chickMe-container {
+    margin-top: 100rpx;
+    border: 1rpx solid black;
+    padding: 20rpx;
+    border-radius: 5px;
 }

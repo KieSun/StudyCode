@@ -1,0 +1,28 @@
+<view>
+    <swiper indicator-dots="true" autoplay="true" interval="2000">
+        <swiper-item>
+            <image src="/pages/images/vr.png"></image>
+        </swiper-item>
+        <swiper-item>
+            <image src="/pages/images/wx.png"></image>
+        </swiper-item>
+        <swiper-item>
+            <image src="/pages/images/iqiyi.png"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="post-container">
+    <view class="user-container">
+        <image src="/pages/images/avatar/5.png"></image>
+        <text>Nov 20 2016</text>
+    </view>
+    <text class="post-title">{{title}}</text>
+    <image class="main-image" src="/pages/images/post/bl.png"></image>
+    <text class="main-text">夜来风雨声，花落知多少。夜来风雨声，花落知多少。夜来风雨声，花落知多少。夜来风雨声，花落知多少。夜来风雨声，花落知多少。夜来风雨声，花落知多少。</text>
+    <view class="like-container">
+        <image class="like-image" src="/pages/images/icon/chat.png"></image>
+        <text class="like-font">92</text>
+        <image class="like-image" src="/pages/images/icon/view.png"></image>
+        <text class="like-font">62</text>
+    </view>
+</view>
