@@ -1,10 +1,13 @@
 Page({
   data:{
-    title: "正是霞飞"
+    array: [{
+      message: 'foo',
+    }, {
+      message: 'bar'
+    }]
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
-    String2
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
