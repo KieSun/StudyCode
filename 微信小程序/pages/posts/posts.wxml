@@ -16,7 +16,7 @@
             <image src="/pages/images/avatar/5.png"></image>
             <text>Nov 20 2016</text>
         </view>
-        <text class="post-title">{{item.message}}</text>
+        <text class="post-title">111{{item.message}}</text>
         <image class="main-image" src="/pages/images/post/bl.png"></image>
         <text class="main-text">夜来风雨声，花落知多少。夜来风雨声，花落知多少。夜来风雨声，花落知多少。夜来风雨声，花落知多少。夜来风雨声，花落知多少。夜来风雨声，花落知多少。</text>
         <view class="like-container">
