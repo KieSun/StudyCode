@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--<h1 id="h1">asdhsadj</h1>-->
+    <!--<ol id="ol">-->
+        <!--<li>111</li>-->
+        <!--<li>222</li>-->
+        <!--<li>333</li>-->
+    <!--</ol>-->
+    <!--<script>-->
+        <!--var element = document.getElementById("h1");-->
+        <!--element.style.color = "red";-->
+        <!--var li = document.getElementById("ol").getElementsByTagName("li");-->
+        <!--for (var i = 0; i < li.length; i++) {-->
+            <!--li[i].style.color = "blue";-->
+            <!--console.log(li[i].innerHTML);-->
+        <!--}-->
+    <!--</script>-->
+
+    <h3>古文推荐</h3>
+    <ul id="list">
+        <li>西游记</li>
+        <li>红楼梦</li>
+        <li>三国演义</li>
+        <li>聊斋志异</li>
+        <li>论语</li>
+        <li>孟子</li>
+        <li>中庸</li>
+        <li>大学</li>
+    </ul>
+    <script>
+        var ul = document.getElementById("list").getElementsByTagName("li");
+        for (var i = 0; i < ul.length; i++) {
+            if (i = 0 || i % 2 != 0) {
+                console.log(ul[1]);
+                ul[1].style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
