@@ -5,6 +5,6 @@
     "pages/posts/posts-detail/posts-detail"
   ],
   "window":{
-    "navgationBarBackgroundColor": "#b3d4db"
+    "navigationBarBackgroundColor": "#b3d4db"
   }
 }

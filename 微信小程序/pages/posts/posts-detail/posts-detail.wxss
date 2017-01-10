@@ -8,6 +8,15 @@
   height: 460rpx;
 }
 
+.play {
+  width: 102rpx;
+  height: 110rpx;
+  position: absolute;
+  top: 175rpx;
+  left: 50%;
+  margin-left: -51rpx;
+}
+
 .author-date {
   flex-direction: row;
   margin-left: 30rpx;

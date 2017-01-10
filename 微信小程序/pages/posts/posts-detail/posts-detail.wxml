@@ -1,6 +1,7 @@
 
 <view class="container">
   <image class="head-image" src="/pages/images/post/cat.png"></image>
+  <image class="play" src="/pages/images/music/music-start.png"></image>
   <view class="author-date">
     <image class="avatar" src="/pages/images/avatar/1.png"></image>
     <text class="author">集合</text>
