@@ -1,7 +1,7 @@
 var data = require("../../localdb/localdb.js")
 Page({
   data: {
-
+      isPlaying: false
   },
   onLoad: function(option) {
       // 得到传过来的 ID
@@ -51,7 +51,7 @@ Page({
                 that.showToast(collected, collections)
             }
         }
-})
+    })
   },
 
   showToast: function(collected, collections) {
@@ -65,5 +65,32 @@ Page({
         duration: 1000
       })
       wx.setStorageSync("post-collected", collections)
+  },
+
+  shareTap: function(event) {
+      var list = ["分享给好友", "分享到朋友圈"]
+      wx.showActionSheet({
+        itemList: list
+    })
+  }, 
+
+  onMusicTap: function(event) {
+      var data = this.data.postData
+      var isPlaying = this.data.isPlaying
+      if (isPlaying) {
+          wx.pauseBackgroundAudio()
+          this.setData({
+              isPlaying: false
+          })
+      } else {
+          wx.playBackgroundAudio({
+            dataUrl: data.music.url,
+            title: data.music.titl,
+            coverImgUrl: data.music.coverImg
+          })
+          this.setData({
+              isPlaying: true
+          })
+      }
   }
 })
