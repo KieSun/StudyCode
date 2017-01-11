@@ -1,20 +1,21 @@
 
 <view class="container">
-  <image class="head-image" src="/pages/images/post/cat.png"></image>
+  <image class="head-image" src="{{postData.imgSrc}}"></image>
   <image class="play" src="/pages/images/music/music-start.png"></image>
   <view class="author-date">
-    <image class="avatar" src="/pages/images/avatar/1.png"></image>
-    <text class="author">集合</text>
+    <image class="avatar" src="{{postData.avatar}}"></image>
+    <text class="author">{{postData.author}}</text>
     <text class="const-text">发表于</text>
-    <text class="date">三天前</text>
+    <text class="date">{{postData.date}}</text>
   </view>
-  <text class="title">猫咪王国</text>
+  <text class="title">{{postData.title}}</text>
   <view class="tool">
     <view class="circle-img">
-      <image src="/pages/images/icon/collection.png"></image>
+      <image wx:if="{{collected}}" catchtap="collectionTap" src="/pages/images/icon/collection.png"></image>
+      <image wx:else catchtap="collectionTap" src="/pages/images/icon/collection-anti.png"></image>
       <image class="share-img" src="/pages/images/icon/share.png"></image>
     </view>
     <view class="horizon"></view>
   </view>
-  <text class="detail">我是猫咪王国的国王</text>
+  <text class="detail">{{postData.detail}}</text>
 </view>

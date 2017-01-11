@@ -11,8 +11,8 @@
             <image src="/pages/images/iqiyi.png"></image>
         </swiper-item>
     </swiper>
-    <block wx:for="{{array}}">
-        <view catchtap="post" data-postId="">
+    <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
+        <view catchtap="post" data-postId="{{idx}}">
             <template is="post-template" data="{{...item}}"/>
         </view>
     </block>
