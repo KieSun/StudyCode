@@ -1,9 +1,11 @@
 var data = require("../../localdb/localdb.js")
+var app = getApp()
 Page({
   data: {
       isPlaying: false
   },
   onLoad: function(option) {
+
       // 得到传过来的 ID
       var id = option.id
       // 赋值为该文件内变量
@@ -26,6 +28,29 @@ Page({
           postsCollected[id] = false
           wx.setStorageSync("post-collected", postsCollected)
       }
+
+      // 判断播放的是不是当前音乐
+      if (app.globalData.g_isPlaying && app.globalData.g_currentPostID === id) {
+          this.setData({
+              isPlaying: true
+          })
+      }
+      // 监听音乐事件
+      var that = this
+      wx.onBackgroundAudioPlay( function() {
+          that.setData({
+              isPlaying: true
+          })
+          app.globalData.g_isPlaying = true
+          app.globalData.g_currentPostID = id
+      })
+      wx.onBackgroundAudioPause( function() {
+          that.setData({
+              isPlaying: false
+          })
+          app.globalData.g_isPlaying = false
+          app.globalData.g_currentPostID = null
+      })
   },
 
   collectionTap: function(event) {
@@ -85,7 +110,7 @@ Page({
       } else {
           wx.playBackgroundAudio({
             dataUrl: data.music.url,
-            title: data.music.titl,
+            title: data.music.title,
             coverImgUrl: data.music.coverImg
           })
           this.setData({
