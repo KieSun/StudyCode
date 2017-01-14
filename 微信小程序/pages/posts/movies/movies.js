@@ -1,20 +1,65 @@
+var common = require("../../common/common.js")
+var app = getApp()
 Page({
   data:{
-    text:"Page movies"
+    inTheaters: {},
+    comingSoon: {},
+    top250: {}
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    this.request('v2/movie/in_theaters?start=0&count=3', "inTheaters")
+    this.request('v2/movie/coming_soon?start=0&count=3', "comingSoon")
+    this.request('v2/movie/top250?start=0&count=3', "top250")
   },
-  onReady:function(){
-    // 页面渲染完成
+
+  request: function(url, key) {
+    var that = this
+    wx.request({
+      url: app.globalData.BaseURL + url,
+      data: {},
+      method: 'GET', 
+      header: {
+        "Content-Type": "json"
+      }, 
+      success: function(res){
+        // success
+        that.pause(res.data, key)
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   },
-  onShow:function(){
-    // 页面显示
-  },
-  onHide:function(){
-    // 页面隐藏
-  },
-  onUnload:function(){
-    // 页面关闭
+
+  pause: function(data, key) {
+    var movies = []
+    var subjects = data.subjects
+    for (var idx in subjects) {
+      var image = subjects[idx].images.medium 
+      var name = subjects[idx].title
+      var average = subjects[idx].rating.average
+      var stars = subjects[idx].rating.stars
+
+      var temp = {
+        stars: common.coverStarArray(stars),
+        image: image,
+        name: name,
+        average: average
+      }
+      movies.push(temp)
+    }
+    var movieData = {
+      title: data.title,
+      movies: movies
+    }
+    var allData = {}
+    allData[key] = {
+      movies: movieData
+    }
+    this.setData(allData)
   }
 })

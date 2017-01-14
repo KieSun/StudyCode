@@ -1,5 +1,12 @@
-<view class="container">
-  <view class="textContainer">
-    <text class="textStyle">{{text}}</text>
+<import src="movie/movie-template.wxml" />
+<view class="list-container">
+  <view class="movie-list">
+    <template is="movie" data="{{...inTheaters}}" />
+  </view>
+  <view class="movie-list">
+    <template is="movie" data="{{...comingSoon}}" />
+  </view>
+  <view class="movie-list">
+    <template is="movie" data="{{...top250}}" />
   </view>
 </view>

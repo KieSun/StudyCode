@@ -4,6 +4,7 @@ App({
   },
 
   globalData:{
-    g_isPlaying: false
+    g_isPlaying: false,
+    BaseURL: 'https://api.douban.com/'
   }
 })
