@@ -1,0 +1,4 @@
+<import src="../singleMovie/singleMovie.wxml"  />
+
+    <template is="singleMovie" data="{{movies}}"  />
+

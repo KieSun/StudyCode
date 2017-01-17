@@ -1,0 +1,10 @@
+<import src="../movieInfo/movieInfo-template.wxml" />
+<template name="singleMovie">
+  <view class="all-movie-list">
+    <block wx:for="{{movies}}" wx:for-item="movie">
+      <view class="single-movie-container">
+        <template is="movieInfo" data="{{...movie}}" />
+      </view>
+    </block>
+  </view>
+</template>

@@ -14,6 +14,28 @@ function coverStarArray(stars) {
     return array
 }
 
+function request(url, callBack) {
+    wx.request({
+      url: url,
+      data: {},
+      method: 'GET', 
+      header: {
+        "Content-Type": "json"
+      }, 
+      success: function(res){
+        // success
+        callBack(res.data)
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  }
+
 module.exports = {
-    coverStarArray: coverStarArray
+    coverStarArray: coverStarArray,
+    request: request
 }

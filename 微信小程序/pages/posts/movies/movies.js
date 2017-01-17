@@ -13,6 +13,15 @@ Page({
     this.request('v2/movie/top250?start=0&count=3', "top250")
   },
 
+  moreTap: function(event) {
+    // 获取data-category
+    var category = event.currentTarget.dataset.category
+    console.log(category)
+    wx.navigateTo({
+      url: 'more-movies/more-movies?category=' + category
+    })
+  },
+
   request: function(url, key) {
     var that = this
     wx.request({

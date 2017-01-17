@@ -32,7 +32,7 @@ Page({
       // 判断播放的是不是当前音乐
       if (app.globalData.g_isPlaying && app.globalData.g_currentPostID === id) {
           this.setData({
-              isPlaying: true
+              isPlaying: trueq
           })
       }
       // 监听音乐事件

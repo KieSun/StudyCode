@@ -1,0 +1,10 @@
+@import "../movieInfo/movieInfo-template.wxss";
+
+.single-movie-container {
+    float: left;
+    margin-bottom: 40rpx;
+}
+
+.all-movie-list {
+    margin: 40rpx 0 40rpx 10rpx;
+}

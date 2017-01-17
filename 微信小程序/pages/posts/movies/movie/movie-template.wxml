@@ -4,7 +4,7 @@
     <view class="inner-container">
       <view class="movie-header">
         <text class="header-text">{{movies.title}}</text>
-        <view class="more">
+        <view class="more" catchtap="moreTap" data-category="{{movies.title}}">
           <text class="more-text">更多</text>
           <image class="more-img" src="/pages/images/icon/arrow-right.png"></image>
         </view>
