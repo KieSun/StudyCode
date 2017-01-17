@@ -2,7 +2,10 @@ var common = require("../../../common/common.js")
 var app = getApp()
 Page({
   data: {
-    movies: {}
+    movies: {},
+    url: "",
+    totolCount: 0,
+    dataIsEmpty: true
   },
   onLoad: function (options) {
     var category = options.category
@@ -22,8 +25,24 @@ Page({
         url = app.globalData.BaseURL + "v2/movie/top250"
         break
     }
-
+    this.setData({
+      url: url
+    })
     common.request(url, this.pause)
+  },
+
+  scrollLower: function(event) {
+    wx.showNavigationBarLoading()
+    var url = this.data.url + "?start=" + this.data.totolCount
+    common.request(url, this.pause)
+  },
+
+  scrolltoupper: function(event) {
+    wx.showNavigationBarLoading()
+    this.data.movies = {}
+    this.data.dataIsEmpty = true
+    this.data.totolCount = 0
+    common.request(this.data.url, this.pause)
   },
 
   pause: function(data) {
@@ -43,13 +62,26 @@ Page({
       }
       movies.push(temp)
     }
+    var totolMovies = {}
+
+    // 下拉刷新数据 append
+    if (!this.data.dataIsEmpty) {
+      totolMovies = this.data.movies.concat(movies)
+    } else {
+      totolMovies = movies
+      this.data.dataIsEmpty = false
+    }
+
     this.setData({
-      movies: movies
+      movies: totolMovies
     })
+    this.data.totolCount += 20
+    wx.hideNavigationBarLoading()
   },
 
   onReady: function () {
     // 页面渲染完成
+    wx.showNavigationBarLoading()
     wx.setNavigationBarTitle({
       title: this.data.navTitle
     })
