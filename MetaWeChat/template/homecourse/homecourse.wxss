@@ -27,12 +27,12 @@
 }
 
 .price {
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #E53333;
 }
 
 .study-number {
-  margin-top: -2rpx;
-  font-size: 28rpx;
+  /*margin-top: -2rpx;*/
+  font-size: 24rpx;
   color: #1E96F4;
 }

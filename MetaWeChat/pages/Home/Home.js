@@ -52,10 +52,10 @@ Page({
         var courseId = results[i].courseId
         var courseImg = results[i].courseImg ? results[i].courseImg : "/images/topnav/hot.png"
         var courseName = results[i].courseName
-        // if (courseName.length > 9) {
-        //   courseName = results[i].courseName.toString().substring(0, 9) + "..."
-        // }
         var stringCoursePrice = results[i].stringCoursePrice
+        if (stringCoursePrice === "0.00") {
+          stringCoursePrice = "公开课"
+        }
         var purchaseNum = results[i].purchaseNum + "人在学"
 
         var data = {
