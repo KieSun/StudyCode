@@ -16,6 +16,28 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+function postRequest(url, callBack) {
+  wx.request({
+    url: url,
+    data: {},
+    method: 'Post',
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    success: function (res) {
+      // success
+      callBack(res.data)
+    },
+    fail: function () {
+      // fail
+    },
+    complete: function () {
+      // complete
+    }
+  })
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  postRequest: postRequest
 }

@@ -1,5 +1,29 @@
-<view class="container">
-  <view class="textContainer">
-    <text class="textStyle">{{text}}</text>
+<import src="../../template/homecourses/homecourses.wxml"  />
+<view class="home-container">
+
+  <!-- 轮播图 -->
+  <view>
+    <swiper indicator-dots="true" autoplay="true" interval="2000">
+      <block wx:for="{{swiperData}}" wx:for-item="item">
+        <swiper-item>
+          <image src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 按钮导航栏 -->
+  <view class="top-nav">
+    <image src="/images/topnav/hot.png"  />
+    <image src="/images/topnav/new.png"  />
+    <image src="/images/topnav/free.png"  />
+    <image src="/images/topnav/active.png"  />
+  </view>
+
+  <!-- 课程推荐 -->
+  <view class="recommend-container">
+    <block wx:for="{{courses}}" wx:for-item="course">
+      <template is="homecourses"  data="{{...course}}"/>
+    </block>
   </view>
 </view>

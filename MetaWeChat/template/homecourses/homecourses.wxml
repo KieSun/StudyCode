@@ -1,0 +1,17 @@
+<import src="../homecourse/homecourse.wxml"  />
+<template name="homecourses">
+  <view class="homecourses-container">
+    <view class="inner-container">
+      <view class="header">
+        <text class="header-text">{{subject}}</text>
+        <text class="more-text">查看更多</text>
+      </view>
+
+      <view class="two-course-container">
+        <block wx:for="{{results}}" wx:for-item="result">
+          <template is="homecourse" data="{{...result}}"  />
+        </block>
+      </view>
+    </view>
+  </view>
+</template>

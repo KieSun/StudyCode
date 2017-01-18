@@ -1,0 +1,32 @@
+@import "../homecourse/homecourse.wxss";
+
+.homecourses-container {
+  background-color: white;
+}
+
+.header {
+  height: 88rpx;
+  border-left: 8rpx solid #1E96F4;
+  background-color: #EFF3F6;
+}
+
+.header-text {
+  font-size: 30rpx;
+  line-height: 88rpx;
+  margin-left: 15rpx;
+}
+
+.more-text {
+  float: right;
+  margin-right: 30rpx;
+  line-height: 88rpx;
+  color: #A4A5BA;
+  font-size: 26rpx;
+}
+
+.two-course-container {
+  margin: 20rpx 40rpx 0 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,10 @@
+<template name="homecourse">
+    <view class="homecourse-container">
+      <image src="{{courseImg}}" />
+      <text class="courseName">{{courseName}}</text>
+      <view class="bottom-container">
+        <text class="price">{{stringCoursePrice}}</text>
+        <text class="study-number">{{purchaseNum}}</text>
+      </view>
+    </view>
+</template>
