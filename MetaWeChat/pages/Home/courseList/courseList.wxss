@@ -1,0 +1,5 @@
+@import "../../../template/courseListCell/courseListCell.wxss";
+
+page {
+    background-color: #E8E8E8;
+}

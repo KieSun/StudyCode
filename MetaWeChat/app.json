@@ -1,6 +1,8 @@
 {
   "pages":[
-    "pages/Home/Home"
+    "pages/Home/Home",
+    "pages/Home/courseList/courseList"
+
   ],
   "window":{
     "backgroundTextStyle":"light",

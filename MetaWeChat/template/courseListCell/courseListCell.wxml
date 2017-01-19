@@ -1,0 +1,23 @@
+<template name="courseListCell">
+
+  <view class="cell-container">
+
+    <image src="{{courseImg}}"  />
+
+    <view class="cell-info-container">
+      <text class="cell-coursename">{{courseName}}</text>
+
+      <view class="teacher-container">
+        <text class="cell-teacher">{{courseTeacher}}</text>
+        <text class="cell-date">{{date}}</text>
+      </view>
+
+      <view class="price-container">
+        <text class="cell-price">{{stringCoursePrice}}</text>
+        <text class="cell-number">{{purchaseNum}}</text>
+      </view>
+
+    </view>
+
+  </view>
+</template>

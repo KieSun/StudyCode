@@ -4,7 +4,7 @@
     <view class="inner-container">
       <view class="header">
         <text class="header-text">{{subject}}</text>
-        <text class="more-text">查看更多</text>
+        <text class="more-text" catchtap="moreTap" data-subject="{{subject}}">查看更多</text>
       </view>
 
       <view class="two-course-container">

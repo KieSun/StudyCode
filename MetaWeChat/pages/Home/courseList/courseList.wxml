@@ -1,0 +1,5 @@
+<import src="../../../template/courseListCell/courseListCell.wxml"  />
+
+<block wx:for="{{courseList}}" wx:for-item="course">
+  <template is="courseListCell" data="{{...course}}"  />
+</block>

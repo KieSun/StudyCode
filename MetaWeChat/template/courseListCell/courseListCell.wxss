@@ -1,0 +1,63 @@
+
+text {
+    font-size: 24rpx;
+    color: #A4A5BA;
+}
+
+.cell-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20rpx;
+    background-color: white;
+    position: relative
+}
+
+.cell-container image {
+    height: 130rpx;
+    width: 180rpx;
+    margin: 30rpx 0 20rpx 30rpx;
+}
+
+.cell-coursename {
+    font-size: 34rpx;
+}
+
+.cell-info-container {
+    display: flex;
+    flex-direction: column;
+    margin: 30rpx 30rpx 20rpx 30rpx;
+}
+
+.cell-coursename {
+    color: #2D3337;
+}
+
+.teacher-container {
+    margin-top: 12rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.cell-date {
+    margin-left: 20rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.price-container {
+    margin-top: 10rpx;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.cell-price {
+    color: #D62626;
+}
+
+.cell-number {
+    position: absolute;
+    bottom: 20rpx;
+    right: 30rpx;
+}

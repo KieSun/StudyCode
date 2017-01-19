@@ -3,17 +3,19 @@ var app = getApp()
 Page({
   data: {
     swiperData: {},
-    courses : {}
+    courses: {}
   },
   onLoad: function (options) {
-    var swiperUrl = app.globalData.BaseURL + "open/b-iphone/anon/banner-list.do"
+    wx.showNavigationBarLoading()
+    var swiperUrl = "open/b-iphone/anon/banner-list.do"
     common.postRequest(swiperUrl, this.parseSwiperJSON)
 
-    var homeCourseUrl = app.globalData.BaseURL + "open/b-iphone/anon/subject-courses.do"
+    var homeCourseUrl = "open/b-iphone/anon/subject-courses.do"
     common.postRequest(homeCourseUrl, this.parseHomeCourseJSON)
   },
   onReady: function () {
     // 页面渲染完成
+    
   },
   onShow: function () {
     // 页面显示
@@ -36,7 +38,7 @@ Page({
     this.setData({
       swiperData: images
     })
-  }, 
+  },
 
   // 解析课程数据
   parseHomeCourseJSON: function (data) {
@@ -76,11 +78,37 @@ Page({
       }
       courses.push(data)
     }
-    console.log(courses)
     this.setData({
       courses: courses
     })
+    wx.hideNavigationBarLoading()
+  },
+
+  // 转换 subject
+  coverSubject: function (subject) {
+    switch (subject) {
+      case "最热":
+        return "1"
+      case "最新":
+        return "0"
+      default:
+        return subject
+    }
+  },
+
+  // Tap
+  moreTap: function (event) {
+    var subject = event.currentTarget.dataset.subject
+    subject = this.coverSubject(subject)
+
+    // 最热为1
+    var sortStatus = 1
+    if (subject === "0") {
+      sortStatus = 0
+    }
+
+    wx.navigateTo({
+      url: "courseList/courseList?subject=" + subject + "&sortStatus=" + sortStatus
+    })
   }
-
-
 })
