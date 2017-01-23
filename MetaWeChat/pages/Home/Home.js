@@ -1,21 +1,42 @@
-var common = require("../../utils/util.js")
+import newData from '../../utils/promise.js';
 var app = getApp()
 Page({
   data: {
     swiperData: {},
-    courses: {}
+    courses: {},
+    isShowLoading: false,
+    isSearch: false
   },
   onLoad: function (options) {
     wx.showNavigationBarLoading()
-    var swiperUrl = "open/b-iphone/anon/banner-list.do"
-    common.postRequest(swiperUrl, this.parseSwiperJSON)
 
-    var homeCourseUrl = "open/b-iphone/anon/subject-courses.do"
-    common.postRequest(homeCourseUrl, this.parseHomeCourseJSON)
+    let self = this
+    let bannerParam = {
+      url: "open/b-iphone/anon/banner-list.do"
+    }
+    let homeCourseParam = {
+      url: "open/b-iphone/anon/subject-courses.do"
+    }
+
+    newData.result(bannerParam).then(data => {
+
+      self.parseSwiperJSON(data)
+
+    }).catch(e => {
+
+    })
+
+    newData.result(homeCourseParam).then(data => {
+
+      self.parseHomeCourseJSON(data)
+
+    }).catch(e => {
+
+    })
   },
   onReady: function () {
     // 页面渲染完成
-    
+
   },
   onShow: function () {
     // 页面显示
@@ -26,6 +47,7 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
+
 
   // Custom Method
   // 解析轮播图数据
@@ -88,7 +110,7 @@ Page({
   coverSubject: function (subject) {
     switch (subject) {
       case "最热":
-        return "1"
+        return ""
       case "最新":
         return "0"
       default:
@@ -98,6 +120,14 @@ Page({
 
   // Tap
   moreTap: function (event) {
+    this.navigateToList(event)
+  },
+
+  navtap: function (event) {
+    this.navigateToList(event)
+  },
+
+  navigateToList: function (event) {
     var subject = event.currentTarget.dataset.subject
     subject = this.coverSubject(subject)
 
@@ -105,6 +135,7 @@ Page({
     var sortStatus = 1
     if (subject === "0") {
       sortStatus = 0
+      subject = ""
     }
 
     wx.navigateTo({
