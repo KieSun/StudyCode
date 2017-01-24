@@ -1,25 +1,47 @@
 var common = require("../../../utils/util.js")
+import newData from '../../../utils/promise.js';
 var app = getApp()
+
 Page({
-  data:{
+  data: {
     courseList: {}
   },
 
-  onLoad:function(options){
+  onLoad: function (options) {
     var subject = options.subject
     var sortStatus = options.sortStatus
-    common.courseListReques(subject, "", "", 1, sortStatus, this.parseCourseListJSON)
+
+    let self = this
+    let listParam = {
+      url: "open/b-iphone/anon/course-list.do",
+      data: {
+        "categoryName": subject,
+        "courseName": "",
+        "gradeName": "",
+        "pageIndex": 1,
+        "sortStatus": sortStatus,
+        "pageSize": 20
+      }
+    }
+
+    newData.result(listParam).then(data => {
+
+      self.parseCourseListJSON(data)
+
+    }).catch(e => {
+
+    })
   },
-  onReady:function(){
+  onReady: function () {
     // 页面渲染完成
   },
-  onShow:function(){
+  onShow: function () {
     // 页面显示
   },
-  onHide:function(){
+  onHide: function () {
     // 页面隐藏
   },
-  onUnload:function(){
+  onUnload: function () {
     // 页面关闭
   },
 
@@ -44,7 +66,7 @@ Page({
         courseName: courseName,
         courseTeacher: courseTeacher,
         stringCoursePrice: stringCoursePrice,
-        purchaseNum: purchaseNum, 
+        purchaseNum: purchaseNum,
         date: date
       }
       courseList.push(data)

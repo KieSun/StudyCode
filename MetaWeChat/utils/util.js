@@ -1,4 +1,6 @@
+
 var app = getApp()
+
 
 function formatTime(date) {
   var year = date.getFullYear()
@@ -29,7 +31,7 @@ function postRequest(url, callBack) {
     data: {},
     method: 'Post',
     header: {
-      "Content-Type": "application/x-www-form-urlencoded"
+      "Content-Type": "application/json"
     },
     success: function (res) {
       callBack(res.data)
@@ -40,6 +42,53 @@ function postRequest(url, callBack) {
     }
   })
 }
+
+export const request = (method = 'POST') => (url, data) => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url,
+      method,
+      header: {
+        'Content-Type': "application/x-www-form-urlencoded"
+      },
+      success: function(res) {
+        resolve(res.data)
+      },
+      fail: function(err) {
+        reject(err)
+      }
+    });
+  })
+}
+
+// function request(params) {
+//   return new Promise(function (resolve, reject) {
+
+//     if (!params) {
+//       reject(new Error(params));
+//     }
+
+//     wx.request({
+//       url: app.globalData.BaseURL + params.url,
+//       method: "POST",
+//       data: {},
+//       header: {
+//       "Content-Type": "application/x-www-form-urlencoded"
+//       },
+//       success: function(res){
+//         if (res.statusCode === 200 || res.statusCode === 201){
+//           resolve(res.data);
+//         }else{
+//           console.log('[error]: ', res)
+//           reject(res);          
+//         }
+//       },
+//       fail: function(res) {
+//         reject(res);
+//       }
+//     })
+//   })
+// }
 
 function courseListReques(categoryName, courseName, gradeName, pageIndex, sortStatus, callBack) {
   wx.request({
@@ -68,5 +117,6 @@ module.exports = {
   formatTime: formatTime,
   postRequest: postRequest,
   courseListReques: courseListReques,
-  transformDate: transformDate
+  transformDate: transformDate,
+  request: request
 }

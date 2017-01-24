@@ -1,6 +1,13 @@
 <import src="../../template/homecourses/homecourses.wxml"  />
 <view class="home-container">
 
+  <!--搜索-->
+  <view class="search">
+    <icon class="search-icon" type="search" size="13"></icon>
+    <input class="search-movie" type="text" placeholder="电影" bindfocus="bindFoucus" bindconfirm="bindconfirm" />
+    <image wx:if="{{isSearch}}" src="/pages/images/icon/xx.png" class="xx-img" bindtap="onCancelImgTap"></image>
+  </view>
+
   <!-- 轮播图 -->
   <view>
     <swiper indicator-dots="true" autoplay="true" interval="2000">
@@ -14,10 +21,10 @@
 
   <!-- 按钮导航栏 -->
   <view class="top-nav">
-    <image src="/images/topnav/hot.png"  />
-    <image src="/images/topnav/new.png"  />
-    <image src="/images/topnav/free.png"  />
-    <image src="/images/topnav/active.png"  />
+    <image catchtap="navtap" data-subject="最热" src="/images/topnav/hot.png"  />
+    <image catchtap="navtap" data-subject="最新" src="/images/topnav/new.png"  />
+    <image catchtap="navtap" data-subject="免费好课" src="/images/topnav/free.png"  />
+    <image catchtap="navtap" data-subject="活动" src="/images/topnav/active.png"  />
   </view>
 
   <!-- 课程推荐 -->
